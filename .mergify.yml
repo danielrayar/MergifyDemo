@@ -15,3 +15,13 @@ pull_request_rules:
     - merged 
     - author~=(^danielrayar$)|(^dependabot.*$)|(^mergify.*$) 
     - base=master
+  - name: Backmerge from release1.0.1 when the author is trusted 
+    actions:   
+      backport:      
+        regexes:      
+        - (^develop$)|(^release\/(.+)$) 
+    conditions:
+    - closed 
+    - merged 
+    - author~=(^danielrayar$)|(^dependabot.*$)|(^mergify.*$) 
+    - base=release/1.0.1   
